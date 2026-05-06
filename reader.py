@@ -8,7 +8,7 @@ from docx.shared import Pt
 from docx.oxml.ns import qn
 
 # 填你的API Key
-API_KEY = "sk-c8cffb5896eb4332b92b055d1f0e00fe"  
+API_KEY = ""  
 
 # DeepSeek最新模型配置
 MODEL_NAME = "deepseek-v4-flash"  # 可选: deepseek-v4-flash 或 deepseek-v4-pro
