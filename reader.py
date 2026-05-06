@@ -198,15 +198,15 @@ def set_font(run, size, font_name='微软雅黑'):
 
 def main():
     print("=" * 60)
-    print("📚 英语阅读批量处理助手")
+    print("英语阅读批量处理助手")
     print("=" * 60)
     
     # 1. 获取新URL
     new_urls, processed = get_new_urls()
     
     if not new_urls:
-        print("\n✨ 没有新文章需要处理！")
-        print("\n💡 使用方法：")
+        print("\n没有新文章需要处理！")
+        print("\n使用方法：")
         print("   1. 在 urls.txt 中添加文章URL（每行一个）")
         print("   2. 重新运行本程序")
         return
@@ -219,38 +219,38 @@ def main():
         print(f"   URL: {url[:60]}...")
         
         # 抓取文章
-        print("   📥 抓取文章...")
+        print("   抓取文章...")
         title, content = fetch_article(url)
         
         if not title or not content:
-            print("   ❌ 抓取失败，跳过\n")
+            print("  抓取失败，跳过\n")
             save_processed_url(url)
             continue
         
-        print(f"   📄 标题: {title[:40]}")
-        print(f"   📏 字数: {len(content)}")
+        print(f"   标题: {title[:40]}")
+        print(f"   字数: {len(content)}")
         
         # AI分析
-        print("   🤖 AI分析中...")
+        print("   AI分析中...")
         try:
             analysis = analyze_article(content)
         except Exception as e:
-            print(f"   ❌ 分析失败: {e}\n")
+            print(f"   分析失败: {e}\n")
             save_processed_url(url)
             continue
         
         # 保存结果
-        print("   💾 保存结果...")
+        print("   保存结果...")
         result_file = save_to_word(title, analysis, url)
         
         # 标记已处理
         save_processed_url(url)
         
-        print(f"   ✅ 完成！{result_file}\n")
+        print(f"   完成！{result_file}\n")
     
     print("=" * 60)
-    print(f"✨ 全部完成！共处理 {len(new_urls)} 篇文章")
-    print(f"📁 结果保存在 reports/ 文件夹")
+    print(f"全部完成！共处理 {len(new_urls)} 篇文章")
+    print(f"结果保存在 reports/ 文件夹")
     print("=" * 60)
 
 if __name__ == "__main__":
